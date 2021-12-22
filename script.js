@@ -22,34 +22,70 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
     //make sure to log console.log FOR EVERYTHING
     //what if they choose something that is not 1-8
     if (lengthChoice >= 8 && lengthChoice <= 128)  {
-        window.alert('You have selected ' + lengthChoice + ' characters.  Is that okay?')
-        var lowercaseChoice = confirm('Do you need lowercase letters in your Password?')
-            if lowercaseChoice == true {
-                console.log('User would like lowercase letters');
-                function lowercaseResult(length) {
-                    var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
+// confirm('You have selected ' + lengthChoice + ' characters.  Is that okay?')
+// if == true {
+//     else
+                var lowercaseChoice = confirm('Do you need lowercase letters in your Password?')
+                    if (lowercaseChoice == true) {
+                        console.log('User would like lowercase letters');
+                        String.fromCharCode()
+                // NEED TO CREATE AN ARRAY WITH SET LENGTH OF var lengthChoice
+                        //THIS NEEDS TO HAVE LOWERCASE,UPPERCASE, NUMBERS AND SYMBOLS
+                        //THIS NEEDS TO OMIT THOSE IF THE 'ELSE' STATEMENTS ARE TRUE
+                
+                //function lowercaseResult(length) 
+                //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
+                //     //make variable lowercaseResult
+                //     // make variable lowercaseCharacters
+                //     // make variable lowercaseLength
+// } else {}
+//lowercase confirm - lowerCaseChoice
+//what if they say no?
                 }
             else {
                 console.log('User does NOT want lowercase letters')
             }
-            //     //make variable lowercaseResult
-            //     // make variable lowercaseCharacters
-            //     // make variable lowercaseLength
-            // } else {}
-        //lowercase confirm - lowerCaseChoice
-        //what if they say no?
-        confirm('Do you need UPPERCASE letters in your Password?')
-        //upper case confirm - upperCaseChoice
-        confirm('Do you need numbers (1,2,3,etc.) in your Password?')
-        //numbers confirm - numbersChoice
-        confirm('Do you need special characters or symbols in your Password?')
-        //special confirm - specialChoice
+//upper case confirm - upperCaseChoice
+        var uppercaseChoice = confirm('Do you need lowercase letters in your Password?')
+            if (uppercaseChoice == true) {
+                console.log('User would like uppercase letters');
+                // function lowercaseResult(length) 
+                //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
+                }
+            else {
+                console.log('User does NOT want uppercase letters')
+            }
+//numbers confirm - numbersChoice
+            var numChoice = confirm('Do you need numbers (1,2,3,etc.) in your Password?')
+                if (numChoice == true) {
+                    console.log('User would like numbers');
+                    // function lowercaseResult(length) 
+                    //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
+                    }
+                else {
+                    console.log('User does NOT want numbers')
+                }        
+//special confirm - specialChoice
+        var symChoice = confirm('Do you need special characters or symbols in your Password?')
+        if (symChoice == true) {
+            console.log('User would like Symbols');
+            // function lowercaseResult(length) 
+            //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
+            }
+        else {
+            console.log('User does NOT want Symbols')
+        }
     } else window.alert('You must select a number between 8 and 128'); {
- 
+// what if user selects none of the above
+if (uppercaseChoice == false && lowercaseChoice == false && numChoice == false && symChoice == false) {
+    window.alert ('You must select "ok" for at least one option');
+}
         //MAYBE ADD THIS BACK IN AFTER COMPLETING
         // generatePassword();
     }
-    return;
+return;
+}
+
 
     //javascript confirm "confirm("press a button")"
 
@@ -73,6 +109,5 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
       // convert array to string
       //return string
 // display password in text box - write to page
-}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
