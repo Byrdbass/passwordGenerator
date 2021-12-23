@@ -12,3 +12,6 @@ If the user picks all 4 options, then that will be the easiest type of code to s
 
 ## Resources used
 -[https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript]
+-https://www.ascii-code.com/
+-https://www.tutorialspoint.com/difference-between-var-and-let-in-javascript
+-https://codehandbook.org/generate-random-string-characters-in-javascript/
