@@ -1,4 +1,8 @@
 // Assignment Code
+var UpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+var lowerCase = 'abcdefghijklmnopqrstuvwxyz'
+var numbers = '1234567890'
+var symbols = '!@#$%^&*=+-_`~'
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -25,10 +29,12 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
 // confirm('You have selected ' + lengthChoice + ' characters.  Is that okay?')
 // if == true {
 //     else
+    var allChoices = '';
                 var lowercaseChoice = confirm('Do you need lowercase letters in your Password?')
                     if (lowercaseChoice == true) {
                         console.log('User would like lowercase letters');
-                        String.fromCharCode()
+                        //+= is when you add on to something
+                        allChoices += lowerCase; 
                 // NEED TO CREATE AN ARRAY WITH SET LENGTH OF var lengthChoice
                         //THIS NEEDS TO HAVE LOWERCASE,UPPERCASE, NUMBERS AND SYMBOLS
                         //THIS NEEDS TO OMIT THOSE IF THE 'ELSE' STATEMENTS ARE TRUE
@@ -49,6 +55,7 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
         var uppercaseChoice = confirm('Do you need lowercase letters in your Password?')
             if (uppercaseChoice == true) {
                 console.log('User would like uppercase letters');
+                allChoices += UpperCase
                 // function lowercaseResult(length) 
                 //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
                 }
@@ -59,6 +66,7 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
             var numChoice = confirm('Do you need numbers (1,2,3,etc.) in your Password?')
                 if (numChoice == true) {
                     console.log('User would like numbers');
+                    allChoices += numbers
                     // function lowercaseResult(length) 
                     //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
                     }
@@ -69,12 +77,22 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
         var symChoice = confirm('Do you need special characters or symbols in your Password?')
         if (symChoice == true) {
             console.log('User would like Symbols');
+            allChoices += symbols
+           
             // function lowercaseResult(length) 
             //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
             }
         else {
             console.log('User does NOT want Symbols')
         }
+        console.log('The user has picked ' + allChoices);
+        var finalPassword = '';
+        for (i = 0; i < lengthChoice; i++) {
+        finalPassword += allChoices[Math.floor(Math.random() * allChoices.length)]
+        }
+        console.log('here')
+        console.log(finalPassword);
+        return finalPassword;
     } else window.alert('You must select a number between 8 and 128'); {
 // what if user selects none of the above
 if (uppercaseChoice == false && lowercaseChoice == false && numChoice == false && symChoice == false) {
