@@ -23,41 +23,34 @@ function generatePassword() {
         //write variable declaration/function declaration here
 var lengthChoice = prompt('Please enter a the length of your password.  A minimum of 8 and maximum of 128 characters')
     console.log('User wants ' + lengthChoice + ' characters.');
-    //make sure to log console.log FOR EVERYTHING
-    //what if they choose something that is not 1-8
     if (lengthChoice >= 8 && lengthChoice <= 128)  {
-// confirm('You have selected ' + lengthChoice + ' characters.  Is that okay?')
-// if == true {
-//     else
-    var allChoices = '';
-                var lowercaseChoice = confirm('Do you need lowercase letters in your Password?')
-                    if (lowercaseChoice == true) {
-                        console.log('User would like lowercase letters');
-                        //+= is when you add on to something
-                        allChoices += lowerCase; 
-                // NEED TO CREATE AN ARRAY WITH SET LENGTH OF var lengthChoice
-                        //THIS NEEDS TO HAVE LOWERCASE,UPPERCASE, NUMBERS AND SYMBOLS
-                        //THIS NEEDS TO OMIT THOSE IF THE 'ELSE' STATEMENTS ARE TRUE
-                
-                //function lowercaseResult(length) 
-                //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
-                //     //make variable lowercaseResult
-                //     // make variable lowercaseCharacters
-                //     // make variable lowercaseLength
-// } else {}
-//lowercase confirm - lowerCaseChoice
-//what if they say no?
+        var allChoices = '';
+        var buildPassword = '';
+        var buildPassword2 = '';
+        // var workingPassword = '';
+        var finalPassword = '';
+        var lowercaseChoice = confirm('Do you need lowercase letters in your Password?')
+            if (lowercaseChoice == true) {
+                console.log('User would like lowercase letters');
+                //+= is when you add on to something
+                allChoices += lowerCase; 
+                for (i = 0; i <lengthChoice; i++) {
+                buildPassword += lowerCase[Math.floor(Math.random() * lengthChoice)];
+                }
+                    console.log('Password is currently built as ' + buildPassword);
                 }
             else {
                 console.log('User does NOT want lowercase letters')
             }
 //upper case confirm - upperCaseChoice
-        var uppercaseChoice = confirm('Do you need lowercase letters in your Password?')
+        var uppercaseChoice = confirm('Do you need UPPERCASE letters in your Password?')
             if (uppercaseChoice == true) {
                 console.log('User would like uppercase letters');
                 allChoices += UpperCase
-                // function lowercaseResult(length) 
-                //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
+                for (i = 0; i <lengthChoice; i++) {
+                    buildPassword2 += UpperCase[Math.floor(Math.random() * lengthChoice)];    
+                }
+                        console.log('buildPassword2 is currently built as ' + buildPassword2);
                 }
             else {
                 console.log('User does NOT want uppercase letters')
@@ -67,8 +60,11 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
                 if (numChoice == true) {
                     console.log('User would like numbers');
                     allChoices += numbers
-                    // function lowercaseResult(length) 
-                    //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
+                    var buildPassword3 = '';
+                    for (i = 0; i <lengthChoice; i++) {
+                        buildPassword3 += numbers[Math.floor(Math.random() * lengthChoice)];    
+                    }
+                            console.log('buildPassword3 is currently built as ' + buildPassword3);
                     }
                 else {
                     console.log('User does NOT want numbers')
@@ -78,21 +74,31 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
         if (symChoice == true) {
             console.log('User would like Symbols');
             allChoices += symbols
-           
-            // function lowercaseResult(length) 
-            //     var lowercaseChar = 'abcdefghijkllmnopqrstuvwxyz';
+            var buildPassword4 = '';
+            for (i = 0; i < lengthChoice; i++) {
+                buildPassword4 += symbols[Math.floor(Math.random() * lengthChoice)];    
+            }
+                    console.log('buildPassword3 is currently built as ' + buildPassword4);
             }
         else {
             console.log('User does NOT want Symbols')
+            
         }
+        //TRY SLICE METHOD!
+        buildArray = buildPassword.slice(Math.floor(Math.random() * lengthChoice)) + buildPassword2.slice(Math.floor(Math.random() * lengthChoice));
+        // buildArray = [buildPassword, buildPassword2, buildPassword3, buildPassword4]
+        console.log(buildArray);
+        // var index = Math.floor(Math.random() * lengthChoice);
+        // console.log(index);
+        // console.log(buildconcat)
         console.log('The user has picked ' + allChoices);
-        var finalPassword = '';
         for (i = 0; i < lengthChoice; i++) {
-        finalPassword += allChoices[Math.floor(Math.random() * allChoices.length)]
+        // finalPassword = Math.floor(Math.random(buildPassword.every()));
+            finalPassword += allChoices[Math.floor(Math.random() * allChoices.length)]
         }
-        console.log('here')
         console.log(finalPassword);
         return finalPassword;
+    //If the user does not pick a number from 8-128
     } else window.alert('You must select a number between 8 and 128'); {
 // what if user selects none of the above
 if (uppercaseChoice == false && lowercaseChoice == false && numChoice == false && symChoice == false) {
