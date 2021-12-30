@@ -33,11 +33,12 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
             if (lowercaseChoice == true) {
                 console.log('User would like lowercase letters');
                 //+= is when you add on to something
+                //a variable to hold all the possible choices
                 allChoices += lowerCase; 
-                for (i = 0; i <lengthChoice; i++) {
-                buildPassword += lowerCase[Math.floor(Math.random() * lengthChoice)];
-                }
-                    console.log('Password is currently built as ' + buildPassword);
+                // for (i = 0; i <lengthChoice; i++) {
+                finalPassword += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+                // }
+                    // console.log('Password is currently built as ' + buildPassword);
                 }
             else {
                 console.log('User does NOT want lowercase letters')
@@ -47,10 +48,10 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
             if (uppercaseChoice == true) {
                 console.log('User would like uppercase letters');
                 allChoices += UpperCase
-                for (i = 0; i <lengthChoice; i++) {
-                    buildPassword2 += UpperCase[Math.floor(Math.random() * lengthChoice)];    
-                }
-                        console.log('buildPassword2 is currently built as ' + buildPassword2);
+                // for (i = 0; i <lengthChoice; i++) {
+                    finalPassword += UpperCase[Math.floor(Math.random() * UpperCase.length)];    
+                // }
+                        // console.log('buildPassword2 is currently built as ' + buildPassword2);
                 }
             else {
                 console.log('User does NOT want uppercase letters')
@@ -61,10 +62,10 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
                     console.log('User would like numbers');
                     allChoices += numbers
                     var buildPassword3 = '';
-                    for (i = 0; i <lengthChoice; i++) {
-                        buildPassword3 += numbers[Math.floor(Math.random() * lengthChoice)];    
-                    }
-                            console.log('buildPassword3 is currently built as ' + buildPassword3);
+                    // for (i = 0; i <lengthChoice; i++) {
+                        finalPassword += numbers[Math.floor(Math.random() * numbers.length)];    
+                    // }
+                            // console.log('buildPassword3 is currently built as ' + buildPassword3);
                     }
                 else {
                     console.log('User does NOT want numbers')
@@ -75,29 +76,41 @@ var lengthChoice = prompt('Please enter a the length of your password.  A minimu
             console.log('User would like Symbols');
             allChoices += symbols
             var buildPassword4 = '';
-            for (i = 0; i < lengthChoice; i++) {
-                buildPassword4 += symbols[Math.floor(Math.random() * lengthChoice)];    
-            }
-                    console.log('buildPassword3 is currently built as ' + buildPassword4);
+            // for (i = 0; i < lengthChoice; i++) {
+                finalPassword += symbols[Math.floor(Math.random() * symbols.length)];    
+            // }
+                    // console.log('buildPassword3 is currently built as ' + buildPassword4);
             }
         else {
             console.log('User does NOT want Symbols')
             
         }
         //TRY SLICE METHOD!
-        buildArray = buildPassword.slice(Math.floor(Math.random() * lengthChoice)) + buildPassword2.slice(Math.floor(Math.random() * lengthChoice));
+        // buildArray = buildPassword.slice(Math.floor(Math.random() * lengthChoice)) + buildPassword2.slice(Math.floor(Math.random() * lengthChoice));
         // buildArray = [buildPassword, buildPassword2, buildPassword3, buildPassword4]
-        console.log(buildArray);
+        // console.log(buildArray);
         // var index = Math.floor(Math.random() * lengthChoice);
         // console.log(index);
         // console.log(buildconcat)
+        console.log('this is the final password, ' + finalPassword)
         console.log('The user has picked ' + allChoices);
-        for (i = 0; i < lengthChoice; i++) {
+        for (i = finalPassword.length; i < lengthChoice; i++) {
         // finalPassword = Math.floor(Math.random(buildPassword.every()));
             finalPassword += allChoices[Math.floor(Math.random() * allChoices.length)]
         }
-        console.log(finalPassword);
-        return finalPassword;
+        console.log('final password after for loop is ' + finalPassword);
+        //spread operator - tutor helped me with this - coverting a string to an array
+        finalPassword = [...finalPassword]
+        var mixPassword = '';
+        var finalLength = finalPassword.length;
+        for (i = 0; i < finalLength; i++) {
+            console.log('hello')
+            var randomPosition = Math.floor(Math.random() * finalPassword.length);
+            // not using slice because we have put finalPassword into an array
+            mixPassword += finalPassword.splice(randomPosition, 1)
+        }
+        console.log(mixPassword);
+        return mixPassword;
     //If the user does not pick a number from 8-128
     } else window.alert('You must select a number between 8 and 128'); {
 // what if user selects none of the above
